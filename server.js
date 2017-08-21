@@ -68,7 +68,7 @@ app.use(function (req, res, next) {
 });
 app.use('/api/v1',utils.acl.setRole,api_v1)
 app.use('/', express.static(__dirname + '/public_html'), index)
-app.use('/users', users)
+app.use('/users',users)
 
 app.listen(4000, () => {
     console.log("we are up and running on port 4000")

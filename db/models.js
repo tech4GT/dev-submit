@@ -84,6 +84,7 @@ const Users = sequelize.define('user', {
     id: {type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
     name: Sequelize.STRING,
     email: {type: Sequelize.STRING, isEmail: true},
+    profileId : {type : Sequelize.INTEGER, unique: true}
 });
 
 //table to store access tokens
