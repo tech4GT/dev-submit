@@ -1,17 +1,7 @@
 /**
  * Created by tech4GT on 8/21/17.
  */
-/**
- * `APIError` error.
- *
- * References:
- *   - https://developer.github.com/v3/#client-errors
- *
- * @constructor
- * @param {string} [message]
- * @param {number} [code]
- * @access public
- */
+
 function APIError(message) {
     Error.call(this);
     Error.captureStackTrace(this, arguments.callee);

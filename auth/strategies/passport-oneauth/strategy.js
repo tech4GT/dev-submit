@@ -5,70 +5,13 @@ var OAuth2Strategy = require('passport-oauth2')
     , util = require('util')
     , Profile = require('./profile')
     , InternalOAuthError = require('passport-oauth2').InternalOAuthError
-    , APIError = require('../../../errors/apierror');
-
-
-
-/*
-* passport.use(new GoogleStrategy({
- consumerKey: GOOGLE_CONSUMER_KEY,
- consumerSecret: GOOGLE_CONSUMER_SECRET,
- callbackURL: "http://www.example.com/auth/google/callback"
- },
- function(token, tokenSecret, profile, done) {
- User.findOrCreate({ googleId: profile.id }, function (err, user) {
- return done(err, user);
- });
- }
- ));
-*
-* */
+    , APIError = require('../../errors/apierror');
 
 
 
 
-/**
- * `Strategy` constructor.
- *
- * The GitHub authentication strategy authenticates requests by delegating to
- * GitHub using the OAuth 2.0 protocol.
- *
- * Applications must supply a `verify` callback which accepts an `accessToken`,
- * `refreshToken` and service-specific `profile`, and then calls the `cb`
- * callback supplying a `user`, which should be set to `false` if the
- * credentials are not valid.  If an exception occured, `err` should be set.
- *
- * Options:
- *   - `clientID`      your GitHub application's Client ID
- *   - `clientSecret`  your GitHub application's Client Secret
- *   - `callbackURL`   URL to which GitHub will redirect the user after granting authorization
- *   - `scope`         array of permission scopes to request.  valid scopes include:
- *                     'user', 'public_repo', 'repo', 'gist', or none.
- *                     (see http://developer.github.com/v3/oauth/#scopes for more info)
- *   — `userAgent`     All API requests MUST include a valid User Agent string.
- *                     e.g: domain name of your application.
- *                     (see http://developer.github.com/v3/#user-agent-required for more info)
- *
- * Examples:
- *
- *     passport.use(new GitHubStrategy({
- *         clientID: '123-456-789',
- *         clientSecret: 'shhh-its-a-secret'
- *         callbackURL: 'https://www.example.net/auth/github/callback',
- *         userAgent: 'myapp.com'
- *       },
- *       function(accessToken, refreshToken, profile, cb) {
- *         User.findOrCreate(..., function (err, user) {
- *           cb(err, user);
- *         });
- *       }
- *     ));
- *
- * @constructor
- * @param {object} options
- * @param {function} verify
- * @access public
- */
+
+
 function Strategy(options, verify) {
     options = options || {};
     options.authorizationURL = options.authorizationURL || 'https://account.codingblocks.com/oauth/authorize';
