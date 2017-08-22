@@ -2,7 +2,7 @@
  * Created by abhishekyadav on 26/06/17.
  */
 var passport = require('passport');
-var oneauthStrategy = require('./strategies/passport-oneauth')
+var oneauthStrategy = require('passport-oneauth')
 const localStrategy = require('./strategies/local/localStrategy');
 const models = require('../db/models');
 const db = require('../db');
@@ -32,7 +32,7 @@ passport.deserializeUser(function (obj, done) {
 });
 
 
-passport.use('oauth-cb', new oneauthStrategy({
+passport.use('oneauth', new oneauthStrategy({
         authorizationURL: 'https://account.codingblocks.com/oauth/authorize',
         tokenURL: 'https://account.codingblocks.com/oauth/token',
         clientID: secrets.clientID,

@@ -121,12 +121,12 @@ router.get('/login', function(req, res) {
 });
 
 //route for redirecting user to Provider's site
-router.get('/login/cb',passport.authenticate('oauth-cb'));
+router.get('/login/cb',passport.authenticate('oneauth'));
 
 //route for callback and retrieving token
 
 router.get('/login/cb/callback',
-  passport.authenticate('oauth-cb', {failureRedirect: '/api/v1/batches'}),function (req, res) {
+  passport.authenticate('oneauth', {failureRedirect: '/api/v1/batches'}),function (req, res) {
     //success
     res.redirect('/')
   });
